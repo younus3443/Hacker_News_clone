@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ submission.title }} - Hacker News Clone{% endblock %}
+
+{% block content %}
+<h1>{{ submission.title }}</h1>
+<p>{{ submission.content }}</p>
+
+<hr>
+
+<h3>Comments:</h3>
+
+{% for comment in comments %}
+    {% include 'comments/comment_item.html' with comment=comment level=0 %}
+{% empty %}
+    <p>No comments yet. Be the first to comment!</p>
+{% endfor %}
+{% endblock %}

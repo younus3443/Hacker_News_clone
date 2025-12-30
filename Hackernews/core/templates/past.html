@@ -1,0 +1,29 @@
+<!-- templates/past.html -->
+{% extends "base.html" %}
+
+{% block content %}
+  <h2>Past Stories{% if days %} ({{ days }} day{{ days|pluralize }} ago){% endif %}</h2>
+
+  <ol class="submissions">
+    {% for submission in submissions %}
+      <li class="news-item">
+        <a class="vote-arrow" href="{% url 'upvote' submission.id %}">▲</a>
+
+        {% if submission.url %}
+          <a class="news-title" href="{{ submission.url }}" target="_blank">{{ submission.title }}</a>
+          <span class="domain">({{ submission.domain }})</span>
+        {% else %}
+          <a class="news-title" href="{% url 'item' submission.id %}">{{ submission.title }}</a>
+        {% endif %}
+
+        <br>
+        <small class="news-meta">
+          <a href="{% url 'upvote' submission.id %}">{{ submission.points }} points</a>
+          by {{ submission.author.username }}
+          {{ submission.created_at|timesince }} ago |
+          <a href="{% url 'item' submission.id %}">comments</a>
+        </small>
+      </li>
+    {% endfor %}
+  </ol>
+{% endblock %}

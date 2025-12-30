@@ -1,0 +1,38 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login</title>
+    <link rel="stylesheet" href="{% static 'css/registration.css' %}">
+    <script src="{% static 'javascript/login.js'%}" defer></script>
+</head>
+<body>
+    <div class="login-container">
+        <h2>Login</h2>
+
+        {% if error %}
+            <p class="error">{{ error }}</p>
+        {% endif %}
+
+        <form method="POST">
+            {% csrf_token %}
+            <label>Username:</label>
+            <input type="text" name="username" required>
+
+            <label>Password:</label>
+            <input type="password" name="password" id="password" required>
+
+            <div class="show-password">
+                <input type="checkbox" id="togglePassword">
+                <label for="togglePassword">Show password</label>
+            </div>
+
+            <button type="submit">Login</button>
+        </form>
+        <p class="signup-text">
+            New here?
+            <a href="{% url 'signup' %}" class="signup-link">Create an account</a>
+        </p>
+    </div>
+</body>
+</html>

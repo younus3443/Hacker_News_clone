@@ -1,0 +1,36 @@
+{% extends "home.html" %}
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/jobs.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<ol class="submissions">
+{% for job in jobs %}
+  <li class="submission">
+    <a href="{{ job.url|default:'#' }}">{{ job.title }}</a>
+    {% if job.domain %}
+      <span class="domain">({{ job.domain }})</span>
+    {% endif %}
+    <br>
+
+    <small>
+      Posted {{ job.created_at|timesince }} ago
+      {% if user.is_authenticated and user == job.author %}
+        | <a href="{% url 'jobs:edit_job' job.id %}">edit</a>
+        | <a href="{% url 'jobs:delete_job' job.id %}">delete</a>
+      {% endif %}
+    </small>
+
+    {% if job.text %}
+      <p>{{ job.text }}</p>
+    {% endif %}
+  </li>
+{% empty %}
+  <p>No job postings yet.</p>
+{% endfor %}
+</ol>
+
+{% endblock %}

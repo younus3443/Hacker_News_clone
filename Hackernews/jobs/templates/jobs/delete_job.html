@@ -1,0 +1,31 @@
+{% extends "home.html" %}
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/jobs.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="delete-job-container">
+  <h2>Delete Job</h2>
+
+  <p class="warning-text">
+    Are you sure you want to delete this job?
+  </p>
+
+  <div class="job-preview">
+    <strong>{{ job.title }}</strong><br>
+    {% if job.url %}
+      <small>{{ job.url }}</small>
+    {% endif %}
+  </div>
+
+  <form method="post">
+    {% csrf_token %}
+    <div class="delete-actions">
+      <button type="submit">Yes, delete</button>
+      <a href="{% url 'jobs:jobs' %}">Cancel</a>
+    </div>
+  </form>
+</div>
+{% endblock %}

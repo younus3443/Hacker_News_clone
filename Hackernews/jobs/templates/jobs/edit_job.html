@@ -1,0 +1,30 @@
+{% extends "home.html" %}
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/jobs.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="edit-job-container">
+  <h2>Edit Job</h2>
+
+  <form method="post" class="edit-job-form">
+    {% csrf_token %}
+
+    <label>Title</label>
+    <input type="text" name="title" value="{{ job.title }}" required>
+
+    <label>URL</label>
+    <input type="url" name="url" value="{{ job.url }}">
+
+    <label>Description</label>
+    <textarea name="text" rows="6">{{ job.text }}</textarea>
+
+    <div class="form-actions">
+      <button type="submit">Update</button>
+      <a href="{% url 'jobs:jobs' %}">Cancel</a>
+    </div>
+  </form>
+</div>
+{% endblock %}

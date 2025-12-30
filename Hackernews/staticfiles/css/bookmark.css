@@ -1,0 +1,23 @@
+body {
+    background-color: #ffffff;
+}
+
+table {
+    width: 500px;
+    
+}
+td {
+    background-color: #fafaf0;
+}
+
+a.bookmarklet-link {
+    color: #777;
+    font-size: 2em;
+    text-decoration: none;
+}
+
+.footer-bar {
+    width: 100%;
+    height: 1px;
+    background-color: #ff6600;
+}

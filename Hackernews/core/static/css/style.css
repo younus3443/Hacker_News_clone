@@ -1,0 +1,367 @@
+body {
+  margin-left: 5%;
+  margin-right: 5%;
+  background-color: #f6f6ef;
+}
+
+.navbar {
+  background-color: #FF8C00;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 10px;
+  flex-wrap: wrap; 
+  
+  
+}
+
+
+.nav-img {
+  border-radius: 3px;
+  border: 1px solid white;
+  width: 18px;
+  height: 18px;
+}
+
+.navbar h4 {
+  margin: 0;
+}
+
+.navbar h4 a {
+  font-size: 14px;
+  font-weight: bold;
+  text-decoration: none;
+  color: #000;
+}
+
+
+.nav-links {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.nav-links a,
+.login-btn a {
+  color: black;
+  text-decoration: none;
+  font-size: 13px;
+}
+
+.login-btn {
+  margin-left: auto;
+}
+
+.news-container {
+  width: 80%;
+  margin: 20px auto;
+}
+
+.news-item {
+  margin-bottom: 12px;
+}
+
+.news-title {
+  color: #000;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.news-title:hover {
+  text-decoration: underline;
+}
+
+.news-meta {
+  font-size: 11px;
+  color: #828282;
+}
+
+.submissions{
+  margin-top: 10px;
+  color:#828282
+}
+
+
+.submissions ul, 
+.submissions ol{
+  margin:0;  
+  padding-left:15px;
+  
+}
+.submissions ol li::marker {
+  color: #000;
+  font-size: 14px;
+}
+
+
+
+.news-item {
+  margin-bottom: 14px;   
+}
+
+.news-title {
+  font-size: 14px;
+  color: #000;
+  text-decoration: none;
+  display: inline;
+}
+
+.news-title:hover {
+  text-decoration: underline;
+}
+
+.domain {
+  color: #828282;
+  font-size: 13px;
+  margin-left: 4px;
+}
+
+.news-meta {
+  display: block;       
+  margin-top: 2px;       
+  font-size: 11px;
+  color: #828282;
+}
+
+.news-meta a {
+  color: #828282;
+  text-decoration: none;
+}
+
+.news-meta a:hover {
+  text-decoration: underline;
+}
+
+
+/* comment */
+/* Comments container */
+.comments {
+  list-style-type: none; 
+  padding-left: 0;
+  margin-top: 10px;
+  color: #828282;
+  font-size: 13px;
+}
+
+/* Single comment */
+.comments li {
+  margin-bottom: 12px;
+  border-left: 1px solid #ddd;
+  padding-left: 10px;
+  position: relative;
+}
+
+/* Comment author and meta */
+.comments strong {
+  color: #000;
+}
+
+.comments li small {
+  color: #828282;
+  font-size: 11px;
+}
+
+/* Comment text */
+.comments p {
+  margin: 4px 0;
+  line-height: 1.3em;
+}
+
+/* Reply form */
+.comments textarea {
+  width: 90%;
+  font-size: 12px;
+  padding: 4px;
+  margin: 4px 0;
+  border: 1px solid #ccc;
+  border-radius: 2px;
+  resize: vertical;
+}
+/* Comment text should be black */
+.comments .comment-body,
+.comments p {
+  color: #000;
+  font-size:13px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+
+}
+
+.comments button {
+  font-size: 12px;
+  background-color: #ff6600;
+  border: none;
+  color: white;
+  padding: 2px 6px;
+  cursor: pointer;
+  border-radius: 2px;
+}
+
+.comments button:hover {
+  background-color: #ff8533;
+}
+
+/* Nested replies */
+.comments ul {
+  list-style-type: none;
+  margin-left: 20px; 
+  padding-left: 0;
+  margin-top: 6px;
+}
+
+
+.comment-toggle {
+  cursor: pointer;
+  color: #828282;
+  font-size: 11px;
+  margin-bottom: 2px;
+}
+
+
+
+.reply-link {
+  font-size: 11px;
+  color: #000; 
+  cursor: pointer;
+  
+}
+
+.comment-header .vote-arrow{
+   color: #828282;
+   margin-right: 6px;
+
+}
+
+.add_comment{
+  margin-bottom: 30px;
+  margin-top: 30px;
+}
+
+form textarea{
+  width:90%;
+  height:120px
+}
+
+/* More link (HN style) */
+.more-container {
+  margin: 12px 0 20px 40px;
+}
+
+.more-link {
+  font-size: 13px;
+  color: #000;
+  text-decoration: none;
+}
+
+.more-link:hover {
+  text-decoration: underline;
+}
+
+
+/* Footer */
+.hn-footer {
+  margin-top: 30px;
+  text-align: center;
+  font-size: 11px;
+  color: #828282;
+}
+
+.hn-footer hr {
+  border: none;
+  border-top: 2px solid #ff6600;
+  margin-bottom: 10px;
+}
+
+.footer-links {
+  margin-bottom: 8px;
+}
+
+.footer-links a {
+  color: #000;
+  text-decoration: none;
+  margin: 0 3px;
+}
+
+.footer-links a:hover {
+  text-decoration: underline;
+}
+
+.footer-search {
+  margin-top: 6px;
+}
+
+.footer-search label {
+  margin-right: 4px;
+}
+
+.footer-search input {
+  font-size: 11px;
+  padding: 2px 4px;
+  width: 120px;
+}
+
+
+/* Search-CSS */
+
+.search-container {
+  font-family: Verdana, sans-serif;
+  font-size: 14px;
+}
+
+/* Search header text */
+.search-container p {
+  margin-bottom: 10px;
+  color: #444;
+}
+
+/* Section headings */
+.search-container h3 {
+  font-size: 14px;
+  font-weight: bold;
+  margin-top: 20px;
+  margin-bottom: 8px;
+}
+
+/* Lists */
+.search-container ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.search-container li {
+  margin-bottom: 8px;
+}
+
+/* Links */
+.search-container a {
+  color: #000;
+  text-decoration: none;
+}
+
+.search-container a:hover {
+  text-decoration: underline;
+}
+
+/* Article meta */
+.search-container small {
+  color: #666;
+  margin-left: 5px;
+}
+
+/* Empty text */
+.search-container .empty {
+  color: #777;
+}
+
+
+/* edit/delete article */
+.news-meta a {
+  color: #828282;
+  text-decoration: none;
+}
+
+.news-meta a:hover {
+  text-decoration: underline;
+}

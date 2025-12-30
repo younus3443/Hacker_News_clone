@@ -1,0 +1,43 @@
+{% extends "home.html" %}
+{% load static %}
+
+{% block title %}Comments{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/comments.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="comments-list">
+  {% for comment in comments %}
+    <div class="comment">
+
+      <div class="comment-header">
+        <a class="vote-arrow" href="{% url 'upvote' comment.id %}">▲</a>
+        {{ comment.author.username }}
+        {{ comment.created_at|timesince }} ago |
+        on:
+        <a href="{% url 'item' comment.submission.id %}">
+          {{ comment.submission.title }}
+        </a>
+
+        {% if user.is_authenticated and user == comment.author %}
+          | <a href="{% url 'comments:edit_comment' comment.id %}">edit</a>
+          | <a href="{% url 'comments:delete_comment' comment.id %}">delete</a>
+        {% endif %}
+
+
+      </div>
+
+      <div class="comment-body">
+        {{ comment.text }}
+      </div>
+
+    </div>
+  {% empty %}
+    <p>No comments yet.</p>
+  {% endfor %}
+</div>
+
+{% endblock %}

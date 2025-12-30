@@ -1,0 +1,49 @@
+{% load static %}
+<html>
+  <head>
+    <title>Y Combinator: Bookmarklet</title>
+    <link rel="stylesheet" href="{% static 'css/bookmark.css' %}">
+  </head>
+
+  <body>
+    <center>
+      <br><br>
+      <table>
+        <tr>
+          <td>
+            <a href="http://127.0.0.1:8000/">
+              <img
+                src="{% static 'images/yc500.gif' %}"
+                border="0"
+                width="500"
+                height="100"
+              >
+            </a>
+
+            <br><br>
+
+            <b>Bookmarklet</b>
+            <br><br>
+            <div id="main">
+              <p id="first">
+                Thanks to Phil Kast for writing this bookmarklet for submitting
+                links to <a href="http://127.0.0.1:8000/">Hacker News</a>.
+                When you click on the bookmarklet, it will submit the page you're on.
+                To install, drag this link to your browser toolbar:
+                <br><br>
+              </p>
+
+              <br><br>
+
+              <div class="footer-bar"></div>
+
+              <br><br>
+
+            </div>
+
+          </td>
+        </tr>
+      </table>
+    </center>
+  </body>
+</html>

@@ -1,0 +1,252 @@
+/* jobs.css */
+
+
+.submission {
+  font-family: Verdana,Tahoma, sans-serif;
+  font-size: 13px;
+  line-height: 1.4;
+  margin-bottom: 8px;
+  margin-top: 12px;
+  margin-left: -20px;
+  
+}
+
+.submission a {
+  color: #000;
+  
+  text-decoration: none;
+}
+
+.submission a:hover {
+  text-decoration: underline;
+}
+
+.submission small {
+  color: #828282;
+  font-size: 10px;
+}
+
+.submission p {
+  margin: 2px 0 5px 0;
+  font-size: 12px;
+  color: #333;
+}
+
+/* Optional: separate domain in parentheses */
+.submission .domain {
+  color: #828282;
+  font-size: 10px;
+}
+
+.more-container {
+  margin: 10px 0 20px 40px;
+}
+
+.more-link {
+  color: #000;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.more-link:hover {
+  text-decoration: underline;
+}
+
+/* Page background */
+body {
+  background-color: #fff7ec; /* light orange */
+}
+
+/* Form container */
+.job-form-container {
+  max-width: 720px;
+  margin: 40px auto;
+  padding: 20px 25px;
+  background-color: #cacac8; /* HN content background */
+  border-radius: 6px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+  font-family: Verdana,sans-serif;
+  font-size: 14px;
+}
+
+/* Heading */
+.job-form-container h2 {
+  margin-bottom: 20px;
+  font-size: 20px;
+  color: #ff6600; /* HN orange */
+}
+
+/* Labels */
+.job-form-container label {
+  font-weight: bold;
+  color: #333;
+}
+
+/* Inputs & textarea */
+.job-form-container input[type="text"],
+.job-form-container input[type="url"],
+.job-form-container textarea {
+  width: 100%;
+  padding: 8px;
+  margin-top: 4px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-family: inherit;
+  font-size: 14px;
+  background-color: #fff;
+}
+
+/* Focus state */
+.job-form-container input:focus,
+.job-form-container textarea:focus {
+  outline: none;
+  border-color: #ff6600;
+  box-shadow: 0 0 0 1px rgba(255, 102, 0, 0.3);
+}
+.submissions small a{
+  color: #828282;
+}
+
+/* Textarea */
+.job-form-container textarea {
+  resize: vertical;
+}
+
+/* Submit button */
+.job-form-container button {
+  margin-top: 15px;
+  padding: 8px 16px;
+  background-color: #ff6600;
+  border: none;
+  border-radius: 4px;
+  color: #000;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+/* Button hover */
+.job-form-container button:hover {
+  background-color: #e65c00;
+}
+
+/* Error message */
+.job-form-container .error {
+  color: red;
+  margin-bottom: 15px;
+}
+
+
+/* Edit_jobs */
+.edit-job-container {
+  max-width: 620px;
+  margin: 40px auto;
+  font-family: Arial, sans-serif;
+}
+
+.edit-job-container h2 {
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+/* group each field */
+.form-field {
+  margin-bottom: 18px;
+}
+
+.edit-job-form label {
+  display: block;
+  font-size: 13px;
+  font-weight: bold;
+  margin-bottom: 6px;
+  margin-top:6px
+}
+
+.edit-job-form input,
+.edit-job-form textarea {
+  width: 100%;
+  padding: 9px 8px;              /* 🔑 more height */
+  font-size: 14px;               /* 🔑 more readable */
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+.edit-job-form input {
+  height: 38px;                  /* 🔑 prevents congestion */
+}
+
+.edit-job-form textarea {
+  resize: vertical;
+  min-height: 110px;
+}
+
+.form-actions {
+  margin-top: 25px;
+}
+
+.form-actions button {
+  background-color: #ff6600;
+  border: none;
+  padding: 8px 16px;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.form-actions button:hover {
+  background-color: #e65c00;
+}
+
+.form-actions a {
+  margin-left: 12px;
+  font-size: 13px;
+  color: #000;
+  text-decoration: none;
+}
+
+/* delete_job */
+
+.delete-job-container {
+  max-width: 600px;
+  margin: 40px auto;
+  font-family: Arial, sans-serif;
+}
+
+.delete-job-container h2 {
+  font-size: 18px;
+  margin-bottom: 15px;
+}
+
+.warning-text {
+  font-size: 14px;
+  margin-bottom: 15px;
+}
+
+.job-preview {
+  background: #f6f6ef;
+  border: 1px solid #ddd;
+  padding: 10px;
+  font-size: 13px;
+  margin-bottom: 20px;
+}
+
+.delete-actions button {
+  background-color: #ff6600;
+  border: none;
+  padding: 7px 14px;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.delete-actions button:hover {
+  background-color: #e65c00;
+}
+
+.delete-actions a {
+  margin-left: 12px;
+  font-size: 13px;
+  color: #000;
+  text-decoration: none;
+}
+
+
+

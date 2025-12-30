@@ -1,0 +1,28 @@
+{% extends "home.html" %}
+{% load static %}
+
+{% block title %}Edit Profile{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/profile.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="profile-container">
+
+  <h2>Edit Profile</h2>
+
+  <form method="post">
+    {% csrf_token %}
+
+    <p>
+      <label>About</label><br>
+      <textarea name="bio" rows="6" style="width:100%;">{{ request.user.bio }}</textarea>
+    </p>
+
+    <button type="submit">Save</button>
+
+  </form>
+
+</div>
+{% endblock %}

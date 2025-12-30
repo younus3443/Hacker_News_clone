@@ -1,0 +1,34 @@
+{% extends "home.html" %}
+
+{% block title %}New Articles - Hacker News{% endblock %}
+
+{% block content %}
+
+<div class="submissions">
+  <ol>
+    {% for s in submissions %}
+      <li class="news-item">
+        
+        <a class="vote-arrow" href="{% url 'upvote' s.id %}">▲</a>
+
+        {% if s.url %}
+          <a class="news-title" href="{{ s.url }}" target="_blank">{{ s.title }}</a>
+          {% if s.domain %}<span class="domain">({{ s.domain }})</span>{% endif %}
+        {% else %}
+          <a class="news-title" href="{% url 'item' s.id %}">{{ s.title }}</a>
+        {% endif %}
+
+        <br>
+
+        <small class="news-meta">
+          <a class="points-link" href="{% url 'upvote' s.id %}">{{ s.points }} points</a>
+          by {{ s.author.username }} | {{ s.created_at|timesince }} ago |
+          <a href="{% url 'item' s.id %}">{{ s.comments.count }} comments</a>
+        </small>
+      </li>
+    {% empty %}
+      <p>No submissions yet.</p>
+    {% endfor %}
+  </ol>
+</div>
+{% endblock %}

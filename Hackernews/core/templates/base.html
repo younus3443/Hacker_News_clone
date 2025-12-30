@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Hacker News Clone</title>
+
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+  <nav class="navbar">
+    <a href="{% url 'home' %}" {% if sort == 'top' %}class="active"{% endif %}>top</a>
+    |
+    <a href="{% url 'home' %}?sort=new" {% if sort == 'new' %}class="active"{% endif %}>new</a>
+    <a href="{% url 'past' %}" {% if sort == 'past' %}class="active"{% endif %}>past</a>
+  </nav>
+
+  <hr>
+
+  {% for comment in comments %}
+      {% include 'comments/comment_item.html' with comment=comment level=0 %}
+  {% empty %}
+      <p>No comments yet. Be the first to comment!</p>
+  {% endfor %}
+
+</body>
+</html>

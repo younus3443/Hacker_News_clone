@@ -1,0 +1,27 @@
+{% extends "home.html" %}
+{% load static %}
+
+{% block title %}Edit Comment{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/comments.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="edit-comment-container">
+  <h2>Edit Comment</h2>
+
+  <form method="post" class="edit-comment-form">
+    {% csrf_token %}
+
+    <label for="text">Comment</label>
+    <textarea id="text" name="text" rows="6" required>
+{{ comment.text }}</textarea>
+
+    <div class="form-actions">
+      <button type="submit">Update</button>
+      <a href="{% url 'item' comment.submission.id %}">Cancel</a>
+    </div>
+  </form>
+</div>
+{% endblock %}

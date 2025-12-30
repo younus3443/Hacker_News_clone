@@ -1,0 +1,50 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Submit</title>
+    <link rel="stylesheet" href="{% static 'css/submit.css' %}">
+</head>
+<body>
+
+<nav class="navbar">
+    <img class="nav-img" src="{% static 'images/y18.svg' %}">
+    <span class="nav-title">submit</span>
+</nav>
+
+<div class="submit-container">
+    <form method="POST">
+        {% csrf_token %}
+
+        <div class="form-row">
+            <label>title :</label>
+            <input type="text" name="title" required>
+        </div>
+
+        <div class="form-row">
+            <label>url :</label>
+            <input type="url" name="url">
+        </div>
+
+        <div class="form-row">
+            <label>text :</label>
+            <textarea name="text" rows="5"></textarea>
+        </div>
+
+        <button type="submit">submit</button>
+    </form>
+
+    <p class="help-text">
+        Leave url blank to submit a question for discussion.  
+        If there is no url, text will appear at the top of the thread.  
+        If there is a url, text is optional.
+    </p>
+
+    <p class="help-text">
+        You can also submit via <a href="{% url 'bookmark'%}">bookmarklet</a>.
+    </p>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,69 @@
+{% load static%}
+
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Hacker News: Welcome</title>
+  <link rel="stylesheet" href="{% static 'css/welcome.css'%}">
+</head>
+
+<body>
+  <center>
+    <br><br>
+
+    <table class="container">
+      <tr>
+        <td class="content">
+
+          <a href="http://127.0.0.1:8000/">
+            <img src="{% static "images/yc500.gif" %}" width="500" alt="Y Combinator">
+          </a>
+
+          <br><br>
+          <b>Welcome to Hacker News</b>
+          <br><br>
+
+          <p>
+            <a href="http://127.0.0.1:8000/">Hacker News</a> is a bit
+            different from other community sites, and we'd appreciate it if
+            you'd take a minute to read the following as well as the official guidelines
+            
+          </p>
+
+          <p>
+            HN is an experiment. As a rule, a community site that becomes
+            popular will decline in quality. Our hypothesis is that this is
+            not inevitable—by making a conscious effort to resist decline,
+            we can keep it from happening.
+          </p>
+
+          <p>
+            Essentially there are two rules here: don't post or upvote crap
+            links, and don't be rude or dumb in comment threads.
+          </p>
+
+          <p>
+            A crap link is one that's only superficially interesting.
+            Stories on HN don't have to be about hacking, but they do have
+            to be deeply interesting.
+          </p>
+
+          <p>
+            The most important principle on HN is to make thoughtful
+            comments—civil and substantial.
+          </p>
+
+          <br><br>
+
+          <table class="footer-bar">
+            <tr><td></td></tr>
+          </table>
+
+        </td>
+      </tr>
+    </table>
+
+  </center>
+</body>
+</html>

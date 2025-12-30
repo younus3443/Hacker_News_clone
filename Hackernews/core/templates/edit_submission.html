@@ -1,0 +1,34 @@
+{% extends "home.html" %}
+
+{% block title %}Edit Post{% endblock %}
+
+{% block content %}
+<div class="profile-container">
+
+  <h2>Edit Post</h2>
+
+  <form method="post">
+    {% csrf_token %}
+
+    <p>
+      <label>Title</label><br>
+      <input type="text" name="title" value="{{ submission.title }}" required>
+    </p>
+
+    <p>
+      <label>URL</label><br>
+      <input type="url" name="url" value="{{ submission.url }}">
+    </p>
+
+    <p>
+      <label>Text</label><br>
+      <textarea name="text" rows="6">{{ submission.text }}</textarea>
+    </p>
+
+    <button type="submit">Save</button>
+    <a href="{% url 'item' submission.id %}">cancel</a>
+
+  </form>
+
+</div>
+{% endblock %}

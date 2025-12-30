@@ -1,0 +1,119 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+  <title>{% block title %}Hacker News{% endblock %}</title>
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  <link rel="stylesheet" href="{% static 'css/comments.css' %}">
+  {% block extra_css %}{% endblock %}
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <img class="nav-img" src="{% static 'images/y18.svg' %}">
+    <h4>
+      <a href="{% url 'home'%}">Hacker News</a>
+    </h4>
+    <div class="nav-links">
+      <a href="{% url 'welcome'%}">welcome</a> |
+      <a href="{% url 'new' %}">new</a> |
+      <a href="{% url 'past' %}">past</a> |
+      <a href="{% url 'comments:show_comments' %}">comments</a>
+ |
+      <a href="{% url 'jobs:submit_job' %}">submit Jobs</a> |
+      <a href="{% url 'jobs:jobs' %}">jobs</a> |
+      <a href="{% url 'submit' %}">submit</a> |
+      {% if user.is_authenticated %}
+       <a href="{% url 'user_profile' user.username %}">profile</a> |
+{% endif %}
+
+    </div>
+    <div class="login-btn">
+      {% if user.is_authenticated %}
+        <span class="username">{{ user.username }}</span> |
+        <a href="{% url 'logout' %}">logout</a>
+      {% else %}
+        <a href="{% url 'login' %}">login</a>
+      {% endif %}
+    </div>
+  </nav>
+
+  
+  <div class="content">
+    {% block content %}
+    <!-- Default home submissions list -->
+    <div class="submissions">
+      <ol>
+        {% for submission in submissions %}
+          <li class="news-item">
+            
+            <a class="vote-arrow" href="{% url 'upvote' submission.id %}">▲</a>
+
+            
+            {% if submission.url %}
+              <a class="news-title" href="{{ submission.url }}" target="_blank">
+                {{ submission.title }}
+              </a>
+              <span class="domain">({{ submission.domain }})</span>
+            {% else %}
+              <a class="news-title" href="{% url 'item' submission.id %}">
+                {{ submission.title }}
+              </a>
+            {% endif %}
+
+            <br>
+
+            
+            <small class="news-meta">
+                {{ submission.points }} points
+                by {{ submission.author.username }}
+                {{ submission.created_at|timesince }} ago |
+                <a href="{% url 'item' submission.id %}">
+                  {{ submission.comments.count }} comments
+                </a>
+
+                {% if user == submission.author %}
+                  | <a href="{% url 'edit_submission' submission.id %}">edit</a>
+                  | <a href="{% url 'delete_submission' submission.id %}"
+                      onclick="return confirm('Delete this post?');">
+                      delete
+                    </a>
+                {% endif %}
+              </small>
+          </li>
+        {% endfor %}
+      </ol>
+    </div>
+    {% endblock %}
+  </div>
+  {% if next_page %}
+  <div class="more-container">
+    <a class="more-link" href="?sort={{ sort }}&page={{ next_page }}">
+      More
+    </a>
+  </div>
+{% endif %}
+
+
+  <footer class="hn-footer">
+  <hr>
+
+  <div class="footer-links">
+    <a href="https://news.ycombinator.com/newsguidelines.html">Guidelines</a> |
+    <a href="https://news.ycombinator.com/newsfaq.html">FAQ</a> |
+    <a href="https://news.ycombinator.com/lists">Lists</a> |
+    <a href="https://github.com/HackerNews/API">API</a> |
+    <a href="https://news.ycombinator.com/security.html">Security</a> |
+    <a href="https://www.ycombinator.com/legal/">Legal</a> |
+    <a href="https://www.ycombinator.com/apply/">Apply to YC</a> |
+    <a href="#">Contact</a>
+  </div>
+
+  <form action="{% url 'search' %}" method="get">
+    <label for="search">Search:</label>
+    <input type="text" name="q" id="search" placeholder="username or title" />
+  </form>
+</footer>
+
+</body>
+</html>
