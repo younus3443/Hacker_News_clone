@@ -80,6 +80,11 @@
                     </a>
                 {% endif %}
               </small>
+              {% if submission.text %}
+                <div class="submission-text">
+                  {{ submission.text|linebreaks }}
+                </div>
+              {% endif %}
           </li>
         {% endfor %}
       </ol>
