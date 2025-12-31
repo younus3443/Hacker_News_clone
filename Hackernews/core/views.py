@@ -212,8 +212,17 @@ def delete_submission(request, id):
 
 
 def new_stories(request):
-    Submissions = Submission.objects.order_by('-created_at')
-    return render(request, 'new.html', {'submissions': Submissions})
+    page_number = request.GET.get('page', 1)
+    qs = Submission.objects.order_by('-created_at')
+
+    paginator = Paginator(qs, 30)
+    page_obj = paginator.get_page(page_number)
+
+    return render(request, 'home.html', {
+        'submissions': page_obj,
+        'sort': 'new',
+        'next_page': page_obj.next_page_number() if page_obj.has_next() else None,
+    })
 
 
 def past_stories(request):
