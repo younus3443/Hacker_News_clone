@@ -94,6 +94,11 @@ body {
   color: #000;
   font-size: 14px;
 }
+.submissions .submission-text{
+  color: #000;
+  font-size: small;
+  margin-top: -8px;
+}
 
 
 
