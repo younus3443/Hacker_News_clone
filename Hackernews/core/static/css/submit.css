@@ -20,57 +20,97 @@ body {
   border: 1px solid white;
 }
 
-.nav-title {
-  font-weight: bold;
+.submit-container {
+  max-width: 650px;
+  margin: 40px auto;
+  padding: 30px;
+  background-color: #cacac8;
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
 }
 
-.submit-container {
-  padding: 15px;
-}
 
 .form-row {
   display: flex;
-  align-items: flex-start;
+  flex-direction: column;
+  margin-bottom: 18px;
+}
+
+
+.form-row label {
+  font-size: 13px;
+  font-weight: 600;
   margin-bottom: 6px;
+  color: #000;
 }
 
-label {
-  width: 40px;
-  color: #828282;
-  color:#242323
+
+.form-row input,
+.form-row textarea {
+  width: 100%;
+  font-size: 14px;
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid #dcdcdc;
+  font-family: Verdana, sans-serif;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  background-color: #fff;
 }
 
-input,
-textarea {
-  width: 500px;
-  font-size: 13px;
-  padding: 2px;
-  
+
+.form-row input:focus,
+.form-row textarea:focus {
+  outline: none;
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
 }
 
-textarea {
+
+.form-row textarea {
   resize: vertical;
+  min-height: 120px;
 }
 
-button {
-  margin-left: 40px;
-  padding: 2px 6px;
-  font-size: 13px;
-  background-color: #FFDAB9;
-  border-radius: 10px;
-  font-weight: bold;
-}
-button:hover{
-    background-color: #ff6600;
+
+.submit-container button {
+  margin-top: 12px;
+  width: 20%;
+  padding: 12px;
+  font-size: 15px;
+  font-weight: 600;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  background-color: #ff6600;
+  color: #fff;
 
 }
+.submit-container button:hover {
+  background-color: #ee670e;
+  box-shadow: 0 6px 18px rgba(37, 99, 235, 0.25);
+  transform: translateY(-1px);
+}
+
+
+.submit-container button:active {
+  transform: translateY(0);
+  box-shadow: none;
+}
+
 
 .help-text {
-  margin-top: 15px;
-  max-width: 540px;
-  color: #242323;
+  margin-top: 18px;
+  font-size: 13px;
+  color: #666;
+  line-height: 1.5;
 }
 
 .help-text a {
-  color: black;
+  color: #2563eb;
+  text-decoration: none;
 }
+
+.help-text a:hover {
+  text-decoration: underline;
+}
+
