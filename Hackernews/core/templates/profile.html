@@ -12,8 +12,8 @@
   <h2 class="username">
     {{ profile_user.username }}
     {% if user == profile_user %}
-        <small style="font-size:12px;">
-        (<a href="{% url 'edit_profile' %}">edit</a>)
+        <small class="edit-link">
+          <a href="{% url 'edit_profile' %}">(edit)</a>
         </small>
     {% endif %}
   </h2>
