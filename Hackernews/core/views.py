@@ -26,7 +26,7 @@ def home(request):
         # TOP = points first, then time
         submissions_qs = Submission.objects.order_by('-points', '-created_at')
 
-    paginator = Paginator(submissions_qs, 30)  # HN-style: 30 items/page
+    paginator = Paginator(submissions_qs, 20)
     page_obj = paginator.get_page(page_number)
 
     return render(request, 'home.html', {
