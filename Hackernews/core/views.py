@@ -298,3 +298,15 @@ def search(request):
         "users": users,
         "submissions": submissions,
     })
+
+def domain_filter(request):
+    domain = request.GET.get("domain")
+
+    submissions = Submission.objects.filter(
+        domain=domain
+    ).order_by("-created_at")
+
+    return render(request, "domain.html", {
+        "domain": domain,
+        "submissions": submissions,
+    })
