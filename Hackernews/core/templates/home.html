@@ -54,7 +54,12 @@
               <a class="news-title" href="{{ submission.url }}" target="_blank">
                 {{ submission.title }}
               </a>
-              <span class="domain">({{ submission.domain }})</span>
+              {% if submission.domain %}
+                <a class="domain"
+                  href="{% url 'domain_filter' %}?domain={{ submission.domain }}">
+                  ({{ submission.domain }})
+                </a>
+              {% endif %}
             {% else %}
               <a class="news-title" href="{% url 'item' submission.id %}">
                 {{ submission.title }}
