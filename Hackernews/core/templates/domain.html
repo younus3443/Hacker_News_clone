@@ -1,0 +1,43 @@
+{% extends "home.html" %}
+
+{% block title %}
+From {{ domain }}
+{% endblock %}
+
+{% block content %}
+
+<div class="domain-page">
+
+  <h2 class="domain-heading">
+    Stories from <span class="domain-name">{{ domain }}</span>
+  </h2>
+
+  {% if submissions %}
+    <ol class="submission-list">
+      {% for submission in submissions %}
+        <li class="news-item">
+
+          {% if submission.url %}
+            <a class="news-title" href="{{ submission.url }}" target="_blank">
+              {{ submission.title }}
+            </a>
+          {% else %}
+            <span class="news-title">{{ submission.title }}</span>
+          {% endif %}
+
+          <small class="news-meta">
+            {{ submission.points }} points by {{ submission.author.username }}
+            | {{ submission.created_at|timesince }} ago
+            | {{ submission.comments.count }} comments
+          </small>
+
+        </li>
+      {% endfor %}
+    </ol>
+  {% else %}
+    <p class="empty-message">No stories found for this domain.</p>
+  {% endif %}
+
+</div>
+
+{% endblock %}
