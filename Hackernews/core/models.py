@@ -20,6 +20,7 @@ class Submission(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE,related_name="submissions")
     points = models.IntegerField(default=0)
+    domain = models.CharField(max_length=255, blank=True)
     
     STORY = 'story'
     ASK = 'ask'
@@ -40,21 +41,18 @@ class Submission(models.Model):
     def __str__(self):
         return self.title
     
-    @property
-    def domain(self):
-        if not self.url:
-            return None
+    def save(self, *args, **kwargs):
+        if self.url:
+            parsed = urlparse(self.url)
+            domain = parsed.netloc.replace("www.", "")
 
-        parsed = urlparse(self.url)
-        domain = parsed.netloc.replace("www.", "")
+            if domain == "github.com":
+                path = parsed.path.strip("/").split("/")
+                if path:
+                    domain += f"/{path[0]}"
 
-        # OPTIONAL: include first path segment like github.com/user
-        if domain == "github.com":
-            path = parsed.path.strip("/").split("/")
-            if path:
-                domain += f"/{path[0]}"
-
-        return domain
+            self.domain = domain
+        super().save(*args, **kwargs)
     
 class Vote(models.Model):
     user = models.ForeignKey(
