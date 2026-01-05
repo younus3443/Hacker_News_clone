@@ -225,6 +225,10 @@ body {
   color: #828282;
   font-size: 13px;
   margin-left: 4px;
+  text-decoration: none;
+}
+.domain:hover{
+  text-decoration: underline;
 }
 
 .news-meta {
